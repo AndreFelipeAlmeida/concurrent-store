@@ -115,7 +115,7 @@ public class ProductService implements IProductService {
     public Callable<SaleResponse> reportSales() {
         return () -> {
             return SaleResponse.builder()
-                .totalSales(this.saleRepository.size())
+                .totalSales(this.saleRepository.getTotalSales())
                 .products(this.saleRepository.getSales())
             .build();
         };

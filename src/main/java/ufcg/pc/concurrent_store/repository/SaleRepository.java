@@ -6,6 +6,7 @@ import java.util.Enumeration;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import org.springframework.stereotype.Repository;
 
@@ -17,8 +18,11 @@ import ufcg.pc.concurrent_store.model.sale.SaleResponse;
 @Repository
 public class SaleRepository {
     private final ConcurrentHashMap<String, Sale> sales = new ConcurrentHashMap<>();
+    private AtomicInteger totalSales = new AtomicInteger(0);
 
     public void addSale(Sale sale) {
+        totalSales.addAndGet(sale.getQuantitySold().get());
+
         if (sales.putIfAbsent(sale.getId(), sale) != null) {
             sales.computeIfPresent(sale.getId(), 
             (id, existingSale) -> {
@@ -28,8 +32,8 @@ public class SaleRepository {
         }
     }
 
-    public Integer size() {
-        return this.sales.size();
+    public Integer getTotalSales() {
+        return this.totalSales.get();
     }
 
     public Enumeration<Sale> getSales() {
