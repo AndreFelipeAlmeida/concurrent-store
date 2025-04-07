@@ -57,13 +57,29 @@ public class ExceptionControllerAdvice {
      * Define o "manuseador" para quando, de qualquer parte da
      * Aplicação Web, uma exceção do tipo Product Not Found Exception
      * for lançada
-     * @param exception - Exceção Padrão para falta de produtos
+     * @param exception - Exceção Padrão para produto existente
      * @return CustomErrorType - Tipo de Erro Personalizado
      */
     @ExceptionHandler(ProductConflictExpetion.class)
     @ResponseStatus(HttpStatus.CONFLICT)
     @ResponseBody
     public CustomErrorType onProductConflitException(ProductConflictExpetion exception) {
+        return defaultCustomErrorTypeConstruct(
+                exception.getMessage()
+        );
+    }
+
+    /**
+     * Define o "manuseador" para quando, de qualquer parte da
+     * Aplicação Web, uma exceção do tipo Insufficient Stock Exception
+     * for lançada
+     * @param exception - Exceção Padrão para falta de estoque
+     * @return CustomErrorType - Tipo de Erro Personalizado
+     */
+    @ExceptionHandler(InsufficientStockException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseBody
+    public CustomErrorType onInsufficientStockException(InsufficientStockException exception) {
         return defaultCustomErrorTypeConstruct(
                 exception.getMessage()
         );

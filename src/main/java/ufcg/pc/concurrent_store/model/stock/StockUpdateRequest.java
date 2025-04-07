@@ -1,4 +1,4 @@
-package ufcg.pc.concurrent_store.model.stockUpdate;
+package ufcg.pc.concurrent_store.model.stock;
 
 import lombok.Builder;
 import lombok.Data;

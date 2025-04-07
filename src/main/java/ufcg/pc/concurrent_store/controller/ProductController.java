@@ -28,7 +28,8 @@ import ufcg.pc.concurrent_store.model.product.*;
 import ufcg.pc.concurrent_store.service.IProductService;
 import ufcg.pc.concurrent_store.service.ProductService;
 import ufcg.pc.concurrent_store.model.purchase.*;
-import ufcg.pc.concurrent_store.model.stockUpdate.*;
+import ufcg.pc.concurrent_store.model.sale.SaleResponse;
+import ufcg.pc.concurrent_store.model.stock.*;
 
 @RestController
 @RequestMapping()
@@ -106,12 +107,22 @@ public class ProductController {
 		}
 	}
 
-
 	@PutMapping("/products/{id}/stock")
-	public ResponseEntity<?> updateStock(@PathVariable Long id, @RequestBody StockUpdateRequest request) {
+	public ResponseEntity<StockUpdateResponse> updateStock(@PathVariable Long id, @RequestBody StockUpdateRequest request) {
 		Future<StockUpdateResponse> future = executorService.submit(
-            productService.updateStock(id, request)
-    	);
+            productService.updateStock(id, request));
+
+		try {
+			return ResponseEntity.ok(future.get());
+		} catch (Exception e) {
+			throw this.ThrowExceptions(e);
+		}
+	}
+
+	@GetMapping("/sales/report")
+	public ResponseEntity<SaleResponse> reportSales() {
+		Future<SaleResponse> future = executorService.submit(
+            productService.reportSales());
 
 		try {
 			return ResponseEntity.ok(future.get());

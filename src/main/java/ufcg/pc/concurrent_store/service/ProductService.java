@@ -12,8 +12,9 @@ import ufcg.pc.concurrent_store.exception.ConcurrentException;
 import ufcg.pc.concurrent_store.exception.InsufficientStockException;
 import ufcg.pc.concurrent_store.model.product.*;
 import ufcg.pc.concurrent_store.model.purchase.*;
-import ufcg.pc.concurrent_store.model.stockUpdate.*;
-import ufcg.pc.concurrent_store.model.Sale;
+import ufcg.pc.concurrent_store.model.sale.Sale;
+import ufcg.pc.concurrent_store.model.sale.SaleResponse;
+import ufcg.pc.concurrent_store.model.stock.*;
 import ufcg.pc.concurrent_store.repository.ProductRepository;
 import ufcg.pc.concurrent_store.repository.SaleRepository;
 import ufcg.pc.concurrent_store.exception.ProductNotFoundException;
@@ -103,9 +104,18 @@ public class ProductService implements IProductService {
             throw new ProductNotFoundException();
         }
         return StockUpdateResponse.builder()
-                .message("Estoque atualizado.")
                 .remainingStock(request.getQuantity())
                 .build();
+        };
+    }
+
+    @Override
+    public Callable<SaleResponse> reportSales() {
+        return () -> {
+            return SaleResponse.builder()
+                .totalSales(this.saleRepository.size())
+                .products(this.saleRepository.getSales())
+            .build();
         };
     }
 }

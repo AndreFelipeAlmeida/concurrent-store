@@ -6,6 +6,8 @@ import lombok.Getter;
 
 import java.util.concurrent.locks.ReentrantLock;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Builder
 @Data
 public class Product {
@@ -15,6 +17,7 @@ public class Product {
     private Integer quantity;
 
     @Getter
+    @JsonIgnore
     private final transient ReentrantLock lock = new ReentrantLock();
 
     public boolean purchase(int amount) {
