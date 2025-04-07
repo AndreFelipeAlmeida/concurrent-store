@@ -1,5 +1,7 @@
 package ufcg.pc.concurrent_store.controller;
 
+import java.util.Enumeration;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +17,7 @@ import ufcg.pc.concurrent_store.service.ProductService;
 )
 public class ProductController {
 
-	private ProductService productService;
+	private final ProductService productService;
 
 	@Autowired
 	public ProductController(ProductService productService) {
@@ -23,7 +25,7 @@ public class ProductController {
 	}
 
 	@GetMapping
-	public ResponseEntity<Product[]> getProducts() {
+	public ResponseEntity<Enumeration<Product>> getProducts() {
 		return ResponseEntity
 				.ok(this.productService.getProducts());
 	}
