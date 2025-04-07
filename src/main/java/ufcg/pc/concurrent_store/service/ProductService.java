@@ -5,6 +5,8 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
+import java.util.concurrent.atomic.AtomicInteger;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,7 +38,7 @@ public class ProductService implements IProductService {
         return () -> this.productRepository.getProducts();
     }
 
-    public Callable<Product> getProduct(Long id) {
+    public Callable<Product> getProduct(String id) {
         return () -> this.productRepository.getProduct(id);
     }
 
@@ -91,12 +93,12 @@ public class ProductService implements IProductService {
         this.saleRepository.addSale(Sale.builder()
             .id(request.getId())
             .name(productName)
-            .quantitySold(request.getQuantity())
+            .quantitySold(new AtomicInteger(request.getQuantity()))
         .build());
     }
 
     @Override
-    public Callable<StockUpdateResponse> updateStock(Long id, StockUpdateRequest request) {
+    public Callable<StockUpdateResponse> updateStock(String id, StockUpdateRequest request) {
         return () -> {
         boolean update = productRepository.updateStock(id, request.getQuantity());
         

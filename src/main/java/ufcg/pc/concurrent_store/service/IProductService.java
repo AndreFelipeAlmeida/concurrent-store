@@ -12,13 +12,13 @@ import ufcg.pc.concurrent_store.model.stock.*;
 public interface IProductService {
     Callable<Enumeration<Product>> getProducts();
 
-    Callable<Product> getProduct(Long id);
+    Callable<Product> getProduct(String id);
 
     Callable<ProductResponseMessage> postProduct(Product product);
 
     Callable<PurchaseResponse> purchaseProduct(PurchaseRequest request);
 
-    Callable<StockUpdateResponse> updateStock(Long id, StockUpdateRequest request);
+    Callable<StockUpdateResponse> updateStock(String id, StockUpdateRequest request);
 
     Callable<SaleResponse> reportSales();
 }

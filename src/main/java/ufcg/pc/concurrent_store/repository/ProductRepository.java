@@ -12,13 +12,13 @@ import ufcg.pc.concurrent_store.model.product.*;
 @Repository
 public class ProductRepository {
 
-    private final ConcurrentHashMap<Long, Product> productStorage = new ConcurrentHashMap<>();
+    private final ConcurrentHashMap<String, Product> productStorage = new ConcurrentHashMap<>();
 
     public Enumeration<Product> getProducts() {
         return productStorage.elements();
     }
 
-    public Product getProduct(Long id) {
+    public Product getProduct(String id) {
         Product product = productStorage.get(id);
         if (product == null) {
             throw new ProductNotFoundException();
@@ -41,7 +41,7 @@ public class ProductRepository {
         return aux;
     }
 
-    public boolean updateStock(Long id, int newQuantity){
+    public boolean updateStock(String id, int newQuantity){
         Product product = productStorage.get(id);
         if (product == null){
             return false;
@@ -55,7 +55,7 @@ public class ProductRepository {
         }
     }
 
-    public boolean purchaseProduct(Long id, int quantity){
+    public boolean purchaseProduct(String id, int quantity){
         Product product = productStorage.get(id);
         if(product == null){
             return false;
@@ -72,7 +72,7 @@ public class ProductRepository {
         }
     }
 
-    public boolean exists(Long id){
+    public boolean exists(String id){
         return productStorage.containsKey(id);
     }
 }

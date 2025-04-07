@@ -74,7 +74,7 @@ public class ProductController {
 	}
 
 	@GetMapping("/products/{id}")
-	public ResponseEntity<Product> getProduct(@PathVariable Long id) {
+	public ResponseEntity<Product> getProduct(@PathVariable String id) {
 		Future<Product> product = this.executorService.submit(
 													this.productService.getProduct(id));
 		try {
@@ -108,7 +108,7 @@ public class ProductController {
 	}
 
 	@PutMapping("/products/{id}/stock")
-	public ResponseEntity<StockUpdateResponse> updateStock(@PathVariable Long id, @RequestBody StockUpdateRequest request) {
+	public ResponseEntity<StockUpdateResponse> updateStock(@PathVariable String id, @RequestBody StockUpdateRequest request) {
 		Future<StockUpdateResponse> future = executorService.submit(
             productService.updateStock(id, request));
 

@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Builder
 @Data
 public class Product {
-    private long id;
+    private String id;
     private String name;
     private Double price;
     private Integer quantity;

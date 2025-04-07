@@ -5,6 +5,6 @@ import lombok.Data;
 @Builder
 @Data
 public class PurchaseRequest {
-    private long id;
+    private String id;
     private Integer quantity;
 }
