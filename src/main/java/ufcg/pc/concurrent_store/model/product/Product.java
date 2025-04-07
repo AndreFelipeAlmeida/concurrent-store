@@ -9,7 +9,7 @@ import java.util.concurrent.locks.ReentrantLock;
 @Builder
 @Data
 public class Product {
-    private long ID;
+    private long id;
     private String name;
     private Double price;
     private Integer quantity;

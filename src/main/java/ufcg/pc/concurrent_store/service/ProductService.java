@@ -46,7 +46,7 @@ public class ProductService implements IProductService {
         ProductResponseMessage response = ProductResponseMessage.builder()
                                             .product(
                                                 ProductResponse.builder().
-                                                id(product.getID())
+                                                id(product.getId())
                                                 .name(product.getName())
                                                 .build()
                                             ).build();
@@ -79,7 +79,7 @@ public class ProductService implements IProductService {
         return PurchaseResponse.builder()
             .product(
                 ProductPurchaseResponse.builder()
-                .id(product.getID())
+                .id(product.getId())
                 .name(product.getName())
                 .remainingStock(product.getQuantity())
                 .build())
