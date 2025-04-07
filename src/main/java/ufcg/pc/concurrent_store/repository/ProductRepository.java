@@ -33,7 +33,7 @@ public class ProductRepository {
 
     public boolean addProduct(Product product){
         product.getLock().lock();
-        Boolean aux = productStorage.putIfAbsent(product.getID(), product) == null;
+        Boolean aux = productStorage.putIfAbsent(product.getId(), product) == null;
         product.getLock().unlock();
         if(!aux){
             throw new ProductConflictExpetion();
