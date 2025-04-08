@@ -30,7 +30,7 @@ cd concurrent-store
     choco install maven
 ```
 
-[**JDK 21**](https://www.oracle.com/br/java/technologies/downloads/#jdk21-linux)
+[**JDK 21:**](https://www.oracle.com/br/java/technologies/downloads/#jdk21-linux)
 
 Verifique se eles foram baixados
 ```sh
@@ -57,7 +57,7 @@ Passo a passo de como rodar os testes.
 ```sh
 mvn spring-boot:run
 ```
-
+---
 #### **2️⃣ Rode o comando de testes para o maven**
 ```sh
 mvn test
