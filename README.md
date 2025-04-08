@@ -2,11 +2,11 @@
 
 ## Índice 
 * [Passo a Passo - Como executar?](#Passo-a-passo-para-inicializar)
-* [Inicial](#Clonar-o-repositório)
-* [Clone do Repositóriio](#Clonar-o-repositório)
-* [Instalação](#Instalação)
-* [Subir o Servidor](#Subir-o-servidor)
-* [Execução dos Testes](#Testes)
+* [Inicial](#1️⃣-Clonar-o-repositório)
+* [Clone do Repositóriio](#1️⃣-Clonar-o-repositório)
+* [Instalação](#🚀-Instalação)
+* [Subir o Servidor](#4️⃣-Subir-o-servidor)
+* [Execução dos Testes](#👩‍💻-Testes)
 
 ---
 ## Passo a passo para inicializar
