@@ -1,14 +1,14 @@
 <h1 align="center">Servidor para Loja Online - concurrent-store 🛍🛒</h1>
 
-## Índice 
-* [Passo a Passo - Como executar?](#Passo-a-passo-para-inicializar)
-* [Clone do Repositóriio](#1️⃣-Clonar-o-repositório)
-* [Instalação](#Instalação)
+## 📑 Índice 
+* [Passo a Passo - Como executar?](#-Passo-a-passo-para-inicializar)
+* [Clone do Repositório](#1️⃣-Clonar-o-repositório)
+* [Instalação](#-Instalação)
 * [Subir o Servidor](#4️⃣-Subir-o-servidor)
-* [Execução dos Testes](#Testes)
+* [Execução dos Testes](#-Testes)
 
 ---
-## Passo a passo para inicializar
+## 📝 Passo a passo para inicializar
 Passo a passo de como instalar e executar o sistema.
 
 #### **1️⃣ Clonar o repositório** 
@@ -17,7 +17,7 @@ git clone https://github.com/AndreFelipeAlmeida/concurrent-store
 cd concurrent-store
 ```
 ---
-### Instalação 
+### 🛠 Instalação 
 
 #### **2️⃣ Instale o Maven e a JDK**  
 [**Maven:**](https://maven.apache.org/install.html)
@@ -52,7 +52,7 @@ mvn spring-boot:run
 ```
 ---
 
-### Testes
+### 🧪 Testes
 Passo a passo de como rodar os testes.
 
 #### **1️⃣ Suba o servidor** 
