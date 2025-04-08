@@ -3,9 +3,9 @@
 ## Índice 
 * [Passo a Passo - Como executar?](#Passo-a-passo-para-inicializar)
 * [Clone do Repositóriio](#1️⃣-Clonar-o-repositório)
-* [Instalação](#🚀-Instalação)
+* [Instalação](#Instalação)
 * [Subir o Servidor](#4️⃣-Subir-o-servidor)
-* [Execução dos Testes](#👩‍💻-Testes)
+* [Execução dos Testes](#Testes)
 
 ---
 ## Passo a passo para inicializar
@@ -17,7 +17,7 @@ git clone https://github.com/AndreFelipeAlmeida/concurrent-store
 cd concurrent-store
 ```
 ---
-### 🚀 Instalação 
+### Instalação 
 
 #### **2️⃣ Instale o Maven e a JDK**  
 [**Maven:**](https://maven.apache.org/install.html)
@@ -52,7 +52,7 @@ mvn spring-boot:run
 ```
 ---
 
-### 👩‍💻 Testes
+### Testes
 Passo a passo de como rodar os testes.
 
 #### **1️⃣ Suba o servidor** 
