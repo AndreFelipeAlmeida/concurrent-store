@@ -2,15 +2,11 @@ package ufcg.pc.concurrent_store.service;
 
 import java.util.Enumeration;
 import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Future;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ufcg.pc.concurrent_store.exception.ConcurrentException;
 import ufcg.pc.concurrent_store.exception.InsufficientStockException;
 import ufcg.pc.concurrent_store.model.product.*;
 import ufcg.pc.concurrent_store.model.purchase.*;

@@ -1,8 +1,6 @@
 package ufcg.pc.concurrent_store.controller;
 
 import java.util.Enumeration;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +24,6 @@ import ufcg.pc.concurrent_store.exception.ProductConflictExpetion;
 import ufcg.pc.concurrent_store.exception.ProductNotFoundException;
 import ufcg.pc.concurrent_store.model.product.*;
 import ufcg.pc.concurrent_store.service.IProductService;
-import ufcg.pc.concurrent_store.service.ProductService;
 import ufcg.pc.concurrent_store.model.purchase.*;
 import ufcg.pc.concurrent_store.model.sale.SaleResponse;
 import ufcg.pc.concurrent_store.model.stock.*;
