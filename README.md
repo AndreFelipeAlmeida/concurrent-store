@@ -35,7 +35,7 @@ cd concurrent-store
 Acesse o link acima para baixar o JDK 21.
 ```
 
-Verifique se eles foram baixados
+Verifique se eles foram baixados:
 ```sh
 mvn --version
 java --version
