@@ -30,7 +30,10 @@ cd concurrent-store
     choco install maven
 ```
 
-[**JDK 21:**](https://www.oracle.com/br/java/technologies/downloads/#jdk21-linux)
+[**JDK 21**](https://www.oracle.com/br/java/technologies/downloads/#jdk21-linux)
+```sh
+Acesse o link acima para baixar o JDK 21.
+```
 
 Verifique se eles foram baixados
 ```sh
