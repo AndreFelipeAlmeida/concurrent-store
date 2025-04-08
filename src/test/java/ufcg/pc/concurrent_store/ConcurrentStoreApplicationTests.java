@@ -5,6 +5,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
 
+import ufcg.pc.concurrent_store.model.product.Product;
+import ufcg.pc.concurrent_store.model.product.ProductResponseMessage;
+
 import java.util.*;
 import java.util.concurrent.*;
 
@@ -29,12 +32,13 @@ class ConcurrentStoreApplicationTests {
             executor.submit(() -> {
                 try {
                     for (int j = 0; j < 5; j++) {
-                        int action = new Random().nextInt(4);
+                        int action = new Random().nextInt(5);
                         switch (action) {
-                            case 0 -> getProducts();
-                            case 1 -> purchaseProduct("9012", 1);
-                            case 2 -> updateStock("9012", 10);
+                            case 1 -> getProducts();
+                            case 4 -> purchaseProduct("9012"+j, 1);
+                            case 2 -> updateStock("9012"+j, 10);
                             case 3 -> getSalesReport();
+                            case 0 -> addNewProduct("9012"+j, "Produto X"+j, 9.99 ,10);
                         }
                         Thread.sleep(200);
                     }
@@ -51,9 +55,26 @@ class ConcurrentStoreApplicationTests {
         System.out.println("Teste de concorrência finalizado.");
     }
 
+    private void addNewProduct(String id, String name, double price, int quantity) {
+        try {
+            Product product = Product.builder()
+                .id(id)
+                .name(name)
+                .price(price)
+                .quantity(quantity)
+            .build();
+            ResponseEntity<ProductResponseMessage> response = restTemplate.postForEntity(
+                BASE_URL + "/products", product, ProductResponseMessage.class
+            );
+            System.out.println("[POST /products] " + response.getStatusCode() + " " + response.getBody());
+        } catch (Exception e) {
+            System.err.println("Erro em /products: " + e.getMessage());
+        }
+    }
+
     private void getProducts() {
         ResponseEntity<String> response = restTemplate.getForEntity(BASE_URL + "/products", String.class);
-        System.out.println("[GET /products] " + response.getStatusCode());
+        System.out.println("[GET /products] " + response.getStatusCode() + ' ' + response.getBody());
     }
 
     private void purchaseProduct(String id, int quantity) {
@@ -65,7 +86,7 @@ class ConcurrentStoreApplicationTests {
 
         try {
             ResponseEntity<String> response = restTemplate.postForEntity(url, request, String.class);
-            System.out.println("[POST /purchase] " + response.getStatusCode());
+            System.out.println("[POST /purchase] " + response.getStatusCode() + ' ' + response.getBody());
         } catch (Exception e) {
             System.err.println("Erro em /purchase: " + e.getMessage());
         }
@@ -89,9 +110,10 @@ class ConcurrentStoreApplicationTests {
     private void getSalesReport() {
         try {
             ResponseEntity<String> response = restTemplate.getForEntity(BASE_URL + "/sales/report", String.class);
-            System.out.println("[GET /sales/report] " + response.getStatusCode());
+            System.out.println("[GET /sales/report] " + response.getStatusCode()+ ' ' +response.getBody());
         } catch (Exception e) {
             System.err.println("Erro em /sales/report: " + e.getMessage());
         }
     }
+
 }
