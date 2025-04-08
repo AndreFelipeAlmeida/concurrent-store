@@ -9,18 +9,18 @@
 * [Execução dos Testes](#Testes)
 
 ---
-# Passo a passo para inicializar
+## Passo a passo para inicializar
 Passo a passo de como instalar e executar o sistema.
 
-## **1️⃣ Clonar o repositório** 
+#### **1️⃣ Clonar o repositório** 
 ```sh
 git clone https://github.com/AndreFelipeAlmeida/concurrent-store
 cd concurrent-store
 ```
 ---
-## 🚀 Instalação 
+### 🚀 Instalação 
 
-### **2️⃣ Instale o Maven e a JDK**  
+#### **2️⃣ Instale o Maven e a JDK**  
 [**Maven:**](https://maven.apache.org/install.html)
 ```sh
 # LINUX
@@ -38,26 +38,27 @@ mvn --version
 java --version
 ```
 
-### **3️⃣ Instalar dependências**  
+#### **3️⃣ Instalar dependências**  
 ```sh
 mvn clean install
 ```
 ---
 
-## **4️⃣ Subir o servidor**  
+#### **4️⃣ Subir o servidor**  
 ```sh
 mvn spring-boot:run
 ```
 ---
 
-## 👩‍💻 Testes
+### 👩‍💻 Testes
+Passo a passo de como rodar os testes.
 
-## **1️⃣ Suba o servidor** 
+#### **1️⃣ Suba o servidor** 
 ```sh
 mvn spring-boot:run
 ```
 
-## **2️⃣ Rode o comando de testes para o maven**
+#### **2️⃣ Rode o comando de testes para o maven**
 ```sh
 mvn test
 ```
