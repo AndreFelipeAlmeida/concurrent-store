@@ -1,21 +1,31 @@
-# concurrent-store
+<h1 align="center">Servidor para Loja Online - concurrent-store 🛍🛒</h1>
+
+## Índice 
+* [Passo a Passo - Como executar?](#Passo-a-passo-para-inicializar)
+* [Inicial](#Clonar-o-repositório)
+* [Clone do Repositóriio](#Clonar-o-repositório)
+* [Instalação](#Instalação)
+* [Subir o Servidor](#Subir-o-servidor)
+* [Execução dos Testes](#Testes)
 
 ---
-## 🚀 Instalação  
+# Passo a passo para inicializar
+Passo a passo de como instalar e executar o sistema.
 
-Passo a passo de como instalar e executar o sistema.  
-
-### **1️⃣ Clonar o repositório**  
+## **1️⃣ Clonar o repositório** 
 ```sh
 git clone https://github.com/AndreFelipeAlmeida/concurrent-store
 cd concurrent-store
 ```
+---
+## 🚀 Instalação 
 
 ### **2️⃣ Instale o Maven e a JDK**  
 [**Maven:**](https://maven.apache.org/install.html)
 ```sh
 # LINUX
     sudo apt install maven
+
 # WINDOWS (Com Chocolatey)
     choco install maven
 ```
@@ -32,10 +42,23 @@ java --version
 ```sh
 mvn clean install
 ```
+---
 
-### **4️⃣ Suba o servidor**  
+## **4️⃣ Subir o servidor**  
+```sh
+mvn spring-boot:run
+```
+---
+
+## 👩‍💻 Testes
+
+## **1️⃣ Suba o servidor** 
 ```sh
 mvn spring-boot:run
 ```
 
+## **2️⃣ Rode o comando de testes para o maven**
+```sh
+mvn test
+```
 ---
